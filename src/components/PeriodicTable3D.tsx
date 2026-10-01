@@ -116,13 +116,12 @@ export function PeriodicTable3D() {
   const { setSelectedElement, theme } = usePeriodicTable();
 
   return (
-    <div className="w-full h-[60vh] sm:h-[70vh] rounded-2xl overflow-hidden border border-gray-300 dark:border-white/10">
+    <div className="w-full h-[60vh] sm:h-[70vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
       <Canvas
         camera={{ position: [0, 18, 18], fov: 50 }}
-        gl={{ antialias: true }}
+        gl={{ antialias: true, alpha: true }}
       >
-        <color attach="background" args={[theme === 'dark' ? '#0a0a0f' : '#f0f0f5']} />
-        <fog attach="fog" args={[theme === 'dark' ? '#0a0a0f' : '#f0f0f5', 25, 50]} />
+        <fog attach="fog" args={[theme === 'dark' ? '#0f172a' : '#f1f5f9', 25, 50]} />
 
         <ambientLight intensity={theme === 'dark' ? 0.3 : 0.6} />
         <directionalLight position={[10, 15, 10]} intensity={1} castShadow />

@@ -10,7 +10,7 @@ function AppContent() {
   const { viewMode } = usePeriodicTable();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white font-[Inter,sans-serif] transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-[Inter,sans-serif] transition-colors duration-300">
       {/* Header */}
       <header className="px-4 sm:px-6 pt-4 sm:pt-6 pb-2">
         <div className="flex items-center gap-3 mb-4">

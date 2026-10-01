@@ -21,7 +21,7 @@ export function Controls() {
           : 'text-red-400';
 
   return (
-    <div className="flex flex-col gap-4 p-4 sm:p-6 bg-gray-100 dark:bg-white/5 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-white/10">
+    <div className="flex flex-col gap-4 p-4 sm:p-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-black/5 dark:shadow-black/20">
       {/* Top row: search + toggles */}
       <div className="flex flex-col sm:flex-row gap-3">
         {/* Search */}
