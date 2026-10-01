@@ -19,6 +19,8 @@ interface PeriodicTableState {
   setViewMode: (m: ViewMode) => void;
   theme: Theme;
   setTheme: (t: Theme) => void;
+  heatmapMode: 'none' | 'electronegativity';
+  setHeatmapMode: (m: 'none' | 'electronegativity') => void;
 }
 
 const Ctx = createContext<PeriodicTableState | null>(null);
@@ -30,6 +32,7 @@ export function PeriodicTableProvider({ children }: { children: ReactNode }) {
   const [selectedElement, setSelectedElement] = useState<Element | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('2d');
   const [theme, setTheme] = useState<Theme>('dark');
+  const [heatmapMode, setHeatmapMode] = useState<'none' | 'electronegativity'>('none');
 
   // Sync theme class on <html>
   useEffect(() => {
@@ -65,6 +68,7 @@ export function PeriodicTableProvider({ children }: { children: ReactNode }) {
         getState, filteredElements,
         viewMode, setViewMode,
         theme, setTheme,
+        heatmapMode, setHeatmapMode,
       }}
     >
       {children}

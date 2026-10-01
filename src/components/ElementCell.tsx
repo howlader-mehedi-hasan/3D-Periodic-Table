@@ -4,7 +4,7 @@ import type { Element } from '../data/elements';
 import { GROUP_COLORS } from '../data/elements';
 
 export function ElementCell({ element }: { element: Element }) {
-  const { activeCategory, setActiveCategory, setSelectedElement, getState, filteredElements } = usePeriodicTable();
+  const { activeCategory, setActiveCategory, setSelectedElement, getState, filteredElements, heatmapMode } = usePeriodicTable();
 
   const isFiltered = filteredElements.includes(element);
   const isDimmed = activeCategory !== null && element.groupBlock !== activeCategory;
@@ -31,13 +31,14 @@ export function ElementCell({ element }: { element: Element }) {
         min-w-0 aspect-square p-0.5 sm:p-1
         ${colors.bg} ${colors.border}
         ${stateIndicator}
-        ${isDimmed ? 'opacity-20 scale-95' : 'opacity-100'}
+        ${isDimmed ? 'opacity-20 scale-95' : ''}
         ${!isFiltered ? 'opacity-10' : ''}
         hover:scale-110 hover:z-10 hover:shadow-lg hover:shadow-current/20
       `}
       style={{
         gridColumn: element.x,
         gridRow: element.y,
+        opacity: (!isDimmed && isFiltered && heatmapMode === 'electronegativity') ? (element.electronegativity ? 0.2 + (element.electronegativity / 4) * 0.8 : 0.1) : undefined,
       }}
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.95 }}
